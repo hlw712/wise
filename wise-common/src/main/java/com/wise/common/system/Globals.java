@@ -1,4 +1,4 @@
-package com.wise.common.util;
+package com.wise.common.system;
 
 import java.util.HashMap;
 import java.util.Iterator;

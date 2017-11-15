@@ -1,4 +1,4 @@
-package com.wise.common.util;
+package com.wise.common.system;
 
 import com.wise.common.exception.AssertsException;
 
