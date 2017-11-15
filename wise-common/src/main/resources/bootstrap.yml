@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: epm-manage-service-hlw
+  profiles:
+    active: local201
+encrypt:
+  failOnError: false

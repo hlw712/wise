@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    url: ${base.mysql}/test_12_epm?roundRobinLoadBalance=true&characterEncoding=utf-8&useSSL=false
+    username: test_12_epmuser
+    password: test.Ax@123
+    type: com.zaxxer.hikari.HikariDataSource
+  cloud:
+    zookeeper:
+      enabled: true
+      connectString: 192.168.2.201:2182
+      config:
+        enabled: true
+        root: /configurations/microserver
+        defaultContext: commonconfig
+        profileSeparator: ','
+    inetutils:
+      preferredNetworks:
+        - 192.168.1
+        - 192.168
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  redis:
+    database: 0   # database name
+    host: 192.168.2.201 # server host
+    password: # server password
+    port: 6379 # connection port
+    pool:
+      max-idle: 8 # pool settings ...
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    basedir: /
+  port: 20401
+services:
+  usercenter-api-service:
+    apikey: e163ae48-02b1-4e80-8a9c-c86fcd84f3f3
+    version: 1.0
+collect:
+  html-root: http://192.168.2.201:10420
+aliyun:
+  oss:
+    config:
+      bucket: yuansongming
+      region: oss-cn-shanghai
+  sts:
+    config:
+      accessKeyId: LTAIUI7IxiGJFmDl
+      accessKeySecret: z6FRd7SaJOP5Ia6Zj72rHqL5V3HHtQ
+      roleArn: acs:ram::1119331913382418:role/oss-admin
+      roleSessionName: alice-lensyn
+      tokenAdvanceTime: 600
+      tokenExpireTime: 3600
+      version: 2015-04-01
+security:
+  oauth2:
+    client:
+      callBackUri: http://192.168.2.201:10300/oauth/callback
+      clientId: 245e8fcd-eb1c-42a2-8ff6-b464587d908d
+      clientSecret: ab2772fd-900b-49c8-b351-d26f06b4ca7d
+      grantType: password
+      scope: read
