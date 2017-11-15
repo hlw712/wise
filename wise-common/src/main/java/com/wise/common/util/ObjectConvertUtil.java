@@ -1,4 +1,4 @@
-package com.wise.common.base;
+package com.wise.common.util;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

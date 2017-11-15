@@ -17,7 +17,7 @@
     </properties>
 
 	<modules>
-		<module></module>
+		<module>wise-common</module>
 	</modules>
 	
     <dependencies>
