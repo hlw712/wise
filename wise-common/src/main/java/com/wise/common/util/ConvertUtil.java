@@ -16,7 +16,7 @@ import java.util.Map;
  * @author huanglw
  * @date 2017/8/16
  */
-public class ObjectConvertUtil {
+public class ConvertUtil {
 
     /**
      * 把Map（java.util.Map）对象转换为实体对象
@@ -44,21 +44,21 @@ public class ObjectConvertUtil {
     /**
      * 把实体对象 转换为 Map（java.util.Map）对象
      *
-     * @param obj
+     * @param clazz
      * @return
      */
-    public static Map<String, Object> beanToMap(Object obj) {
-        if(obj == null){
+    public static Map<String, Object> beanToMap(Class clazz) {
+        if(clazz == null){
             return null;
         }
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        Field[] declaredFields = obj.getClass().getDeclaredFields();
+        Field[] declaredFields = clazz.getDeclaredFields();
         try {
             for (Field field : declaredFields) {
                 field.setAccessible(true);
-                map.put(field.getName(), field.get(obj));
+                map.put(field.getName(), field.get(clazz));
             }
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
@@ -70,21 +70,21 @@ public class ObjectConvertUtil {
     /**
      * 将对象直接转换成String类型的 XML输出
      *
-     * @param obj 要转换的对象数据
+     * @param clazz 要转换的对象数据
      * @return
      */
-    public static String objectToXML(Object obj) {
+    public static String objectToXML(Class clazz) {
         // 创建输出流
         StringWriter sw = new StringWriter();
         try {
             // 利用jdk中自带的转换类实现
-            JAXBContext context = JAXBContext.newInstance(obj.getClass());
+            JAXBContext context = JAXBContext.newInstance(clazz.getClass());
 
             Marshaller marshaller = context.createMarshaller();
             // 格式化xml输出的格式
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,  Boolean.TRUE);
             // 将对象转换成输出流形式的xml
-            marshaller.marshal(obj, sw);
+            marshaller.marshal(clazz, sw);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
