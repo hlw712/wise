@@ -1,5 +1,8 @@
 package com.zl.wise.common.concept;
 
+import lombok.Data;
+
+import javax.validation.Valid;
 import java.io.Serializable;
 
 @Data

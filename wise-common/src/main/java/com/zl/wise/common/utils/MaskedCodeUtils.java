@@ -1,5 +1,6 @@
 package com.zl.wise.common.utils;
 
+import com.zl.wise.common.validator.ValidateUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -44,7 +45,7 @@ public class MaskedCodeUtils {
      */
     public static String getEmailMasked(String email) {
         // 如果email为空，或者不是email字符串，那么返回该字符串
-        if(StringUtils.isBlank(email) || !ValidateUtil.isEmail(email)) {
+        if(StringUtils.isBlank(email) || !ValidateUtils.isEmail(email)) {
             return email;
         }
         String[] temp = email.split("@");

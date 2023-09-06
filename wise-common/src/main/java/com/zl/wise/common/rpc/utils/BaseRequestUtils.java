@@ -12,11 +12,11 @@ public class BaseRequestUtils {
     }
 
     public static BaseRequest empty() {
-        return BaseRequest.builder().build();
+        return new BaseRequest();
     }
 
     public static <T extends Serializable> BodyRequest<T> body(T body) {
-        return new BodyRequest();
+        return new BodyRequest(body);
     }
 
     public static <T extends Serializable> ListBodyRequest<T> listBodyRequest(List<T> listBody) {

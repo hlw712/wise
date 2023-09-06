@@ -1,5 +1,8 @@
 package com.zl.wise.common.rpc.utils;
 
+import com.zl.wise.common.rpc.response.BodyResponse;
+import com.zl.wise.common.rpc.response.ResponseHeader;
+
 import java.io.Serializable;
 import java.util.function.Function;
 
@@ -11,7 +14,7 @@ public class BodyResponseUtils {
 
     public static <T extends Serializable> BodyResponse<T> codeBodyResponse(T result, SystemCode systemCode, String businessCode, String message) {
         ResponseHeader responseHeader = ResponseHeader.builder().systemCode(systemCode).businessCode(businessCode).message(message).build();
-        return ((BodyResponseBuilder)BodyResponse.bodyBuilder().header(responseHeader)).body(result).build();
+        return ((BodyResponseBuilder) BodyResponse.bodyBuilder().header(responseHeader)).body(result).build();
     }
 
     public static <T extends Serializable> BodyResponse<T> successBodyResponse(T result) {

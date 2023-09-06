@@ -1,10 +1,9 @@
 package com.zl.wise.common.log;
 
-import com.uaepay.merchant.console.frontend.common.exception.BusinessLogicException;
-import com.uaepay.merchant.console.frontend.common.exception.IntegrationException;
 import com.zl.wise.common.core.CallBacker;
-import io.bitexpress.topia.commons.basic.exception.ErrorCodeException;
-import io.bitexpress.topia.commons.basic.exception.i18n.I18nErrorCodeException;
+import com.zl.wise.common.exception.BusinessException;
+import com.zl.wise.common.exception.IntegrationException;
+import com.zl.wise.common.rpc.exception.I18nExceptionCode;
 import org.slf4j.Logger;
 import org.springframework.util.StopWatch;
 
@@ -40,14 +39,11 @@ public class ExecuteTemplate {
         } catch (Exception e) {
             logger.info("app <== remoteServer,msg={},throws Exception", logMessage, e);
 
-            if(e instanceof I18nErrorCodeException) {
-                throw (I18nErrorCodeException)e;
+            if(e instanceof I18nExceptionCode) {
+                throw (I18nExceptionCode) e;
             }
-            if(e instanceof ErrorCodeException) {
-                throw (ErrorCodeException)e;
-            }
-            if(e instanceof BusinessLogicException) {
-                throw (BusinessLogicException)e;
+            if(e instanceof BusinessException) {
+                throw (BusinessException) e;
             }
             throw new IntegrationException(e.getMessage());
         } finally {

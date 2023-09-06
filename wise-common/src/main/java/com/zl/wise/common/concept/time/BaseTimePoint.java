@@ -9,9 +9,7 @@ import java.util.Date;
 
 @Data
 @Builder
-public class TimePoint implements Serializable {
-    @NotNull
-    private PointInclusion inclusion;
+public class BaseTimePoint implements Serializable {
     @NotNull
     private Date time;
 }

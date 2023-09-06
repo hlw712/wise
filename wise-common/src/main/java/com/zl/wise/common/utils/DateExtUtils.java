@@ -1,8 +1,5 @@
 package com.zl.wise.common.utils;
 
-import io.bitexpress.topia.commons.concept.scope.time.PointInclusion;
-import io.bitexpress.topia.commons.concept.scope.time.TimePoint;
-import io.bitexpress.topia.commons.concept.scope.time.TimeScope;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
@@ -100,19 +97,6 @@ public class DateExtUtils {
         return getBeginTimeForDay(new Date());
     }
 
-    /**
-     * 转换为TimeScope对象（包含startTime与endTime之间的时间）
-     *
-     * @param startTime
-     * @param endTime
-     * @return
-     */
-    public static TimeScope toTimeScope(Date startTime, Date endTime) {
-        return TimeScope.builder()
-                .from(TimePoint.builder().inclusion(PointInclusion.INCLUSIVE).time(startTime).build())
-                .to(TimePoint.builder().inclusion(PointInclusion.INCLUSIVE).time(endTime).build())
-                .build();
-    }
 
     /**
      * 字符串转换为 Date
@@ -171,18 +155,6 @@ public class DateExtUtils {
         return simpleDateFormat.format(date);
     }
 
-//    /**
-//     * 根据时区格式日期
-//     * 如果时区没有获取到，默认使用阿联酋迪拜（东4区）时区
-//     *
-//     * @param date
-//     * @param format
-//     * @return
-//     */
-//    public static String formatTimeZone(Date date, String format) {
-//        return format(date, format, TimeZone.getDefault());
-//    }
-
     /**
      * 根据时区格式日期
      * 如果时区没有获取到，默认使用阿联酋迪拜（东4区）时区
@@ -192,7 +164,7 @@ public class DateExtUtils {
      * @return
      */
     public static String formatTimeZone(Date date, String format, String timezoneCode) {
-        timezoneCode = StringUtils.isEmpty(timezoneCode) ? "Etc/GMT-4" : timezoneCode;
+        timezoneCode = StringUtils.isEmpty(timezoneCode) ? TIME_ZONE_DEFAULT : timezoneCode;
         return format(date, format, TimeZone.getTimeZone(timezoneCode));
     }
 }

@@ -1,5 +1,8 @@
 package com.zl.wise.common.rpc.utils;
 
+import com.zl.wise.common.rpc.request.Cacheable;
+import com.zl.wise.common.rpc.request.RequestHeader;
+
 public class RequestHeaderUtils {
     private RequestHeaderUtils() {
     }
