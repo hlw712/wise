@@ -30,37 +30,4 @@ public class Pagination <T> implements Serializable {
         this.sortPageParam = sortPageParam;
         this.items = items;
     }
-
-    public long getTotalElements() {
-        return this.totalElements;
-    }
-
-    public long getTotalPages() {
-        return this.totalPages;
-    }
-
-    public SortPageParam getSortPageParam() {
-        return this.sortPageParam;
-    }
-
-    public List<T> getItems() {
-        return this.items;
-    }
-
-    public void setTotalElements(long totalElements) {
-        this.totalElements = totalElements;
-    }
-
-    public void setTotalPages(long totalPages) {
-        this.totalPages = totalPages;
-    }
-
-    public void setSortPageParam(SortPageParam sortPageParam) {
-        this.sortPageParam = sortPageParam;
-    }
-
-    public void setItems(List<T> items) {
-        this.items = items;
-    }
-
 }

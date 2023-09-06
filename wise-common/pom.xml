@@ -11,6 +11,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>wise-common</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common-job</module>
+        <module>common-file</module>
+        <module>common-log</module>
+        <module>common-cache</module>
+        <module>common-validator</module>
+        <module>common-core</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

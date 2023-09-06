@@ -1,4 +1,6 @@
-package com.zl.wise.common.exception;
+package com.zl.wise.common.validator.exception;
+
+import com.zl.wise.common.exception.BusinessException;
 
 /**
  * 校验异常
