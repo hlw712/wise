@@ -42,13 +42,6 @@
             <version>3.4.2</version>
         </dependency>
 
-        <!-- pinyin manger -->
-        <dependency>
-            <groupId>com.belerweb</groupId>
-            <artifactId>pinyin4j</artifactId>
-            <version>2.5.1</version>
-        </dependency>
-
         <!-- rjava manger -->
         <!-- https://mvnrepository.com/artifact/com.github.lucarosellini.rJava/JRIEngine -->
         <dependency>
